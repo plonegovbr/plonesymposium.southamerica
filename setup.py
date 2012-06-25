@@ -58,6 +58,9 @@ setup(name='plonesymposium.southamerica',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools'] + get_install_requirements(),
+      extras_require={
+        'test': ['plone.app.testing'],
+        },
       entry_points="""
       # -*- Entry points: -*-
 
