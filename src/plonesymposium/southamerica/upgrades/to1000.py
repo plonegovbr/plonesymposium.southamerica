@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 import logging
 
+from collective.grok import gs
 from Products.CMFCore.utils import getToolByName
 
-from s17.app.policy.config import PRODUCTS
-from s17.app.policy.config import PROJECTNAME
-from s17.app.policy.quickinstaller import get_package_name
+from plonesymposium.southamerica.config import PRODUCTS
+from plonesymposium.southamerica.config import PROJECTNAME
+from plonesymposium.southamerica.quickinstaller import get_package_name
 
 
+@gs.upgradestep(title=u'Installs base packages',
+                description=u'Base configuration for our site',
+                source='0.0', destination='1000', sortkey=1,
+                profile='plonesymposium.southamerica:default')
 def fromZero(context):
     """ Upgrade from Zero to version 1000
     """
@@ -24,24 +29,33 @@ def fromZero(context):
     ksstool.setDebugMode(dmode)
 
     # Remove default content
-    remove_default_content(portal)
+    fix_default_content(portal)
 
-    # XXX: why we have to do this here if we have metadata.xml?
     for p in PRODUCTS:
         qi.installProduct(get_package_name(p['package']), locked=p['locked'],
                           hidden=p['hidden'], profile=p['profile'])
 
 
-def remove_default_content(portal):
+def fix_default_content(portal):
     """ Clean up default content types
         Reindex created objects
     """
     logger = logging.getLogger(PROJECTNAME)
-    content_ids = ['front-page', 'news', ]
+    content_ids = ['front-page', 'events', ]
     portal_ids = portal.objectIds()
     for cId in content_ids:
         if cId in portal_ids:
             portal.manage_delObjects([cId])
             logger.info('Deleted object with id %s' % cId)
+    if 'news' in portal_ids:
+        news = portal['news']
+        news.setTitle(u'Notícias')
+        news.setDescription(u'Notícias do Plone Symposium')
+        news.reindexObject()
+    if 'members' in portal_ids:
+        # Hide user's tab
+        members = portal['members']
+        members.setExcludeFromNav(True)
+        members.reindexObject()
 
     logger.info('Cleaned up portal contents')
