@@ -1,0 +1,44 @@
+[experimental.btree]
+version = 1.1
+
+[five.pt]
+version = 2.2.1
+
+[beyondskins.plonesymposium.site]
+#version = 1.3.1
+install = True
+hidden = True
+profile = beyondskins.plonesymposium.site:default
+
+[plone.app.caching]
+install = True
+hidden = True
+profile = plone.app.caching:default
+
+[sc.contentrules.groupbydate]
+version = 1.3.1
+install = True
+hidden = True
+profile = sc.contentrules.groupbydate:default
+
+[Products.PloneFormGen]
+version = 1.7.1
+install = True
+hidden = True
+profile = Products.PloneFormGen:default
+
+[collective.grok]
+version = 1.0a2
+hidden = True
+profile = collective.grok:default
+
+[collective.polls]
+version = 1.0.1
+install = True
+hidden = True
+profile = collective.polls:default
+
+[sc.policy.helper]
+version = 1.0a1
+hidden = True
+profile = sc.policy.helper:default

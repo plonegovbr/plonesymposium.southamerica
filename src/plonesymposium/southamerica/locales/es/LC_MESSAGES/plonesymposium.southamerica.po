@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-06-25 15:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: plonesymposium/southamerica/adapters.py:14
+msgid "All Content"
+msgstr ""
+
+#: plonesymposium/southamerica/adapters.py:15
+msgid "Content E-mail"
+msgstr ""
+
+#: plonesymposium/southamerica/adapters.py:25
+msgid "Content UID"
+msgstr ""
+
+#: plonesymposium/southamerica/config.py:24
+msgid "Installs plonesymposium.southamerica"
+msgstr ""
+
+#: plonesymposium/southamerica/config.py:23
+msgid "Plone Symposium South America"
+msgstr ""
+
+#: plonesymposium/southamerica/config.py:29
+msgid "Uninstall plonesymposium.southamerica"
+msgstr ""
+
