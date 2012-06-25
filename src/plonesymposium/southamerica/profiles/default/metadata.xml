@@ -2,8 +2,6 @@
 <metadata>
   <version>1000</version>
   <dependencies>
-	<dependency>profile-beyondskins.plonesymposium.site:default</dependency>
-	<dependency>profile-Products.PloneFormGen:default</dependency>
-    <dependency>profile-sc.social.like:default</dependency>
+	<dependency>profile-plone.app.theming:default</dependency>
   </dependencies>
 </metadata>
