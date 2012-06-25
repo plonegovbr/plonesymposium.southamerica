@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-
 import logging
-
+from collective.grok import gs
 from Products.CMFCore.utils import getToolByName
 from Products.GenericSetup.upgrade import listUpgradeSteps
 
@@ -33,6 +32,10 @@ def get_package_dependencies():
     return dependencies
 
 
+# Upgrade steps
+@gs.importstep(name="plonesymposium.southamerica-upgrades",
+               title="plonesymposium.southamerica: Upgrades",
+               description="Run available upgrades for this package.")
 def run_upgrades(context):
     """ Run Upgrade steps
     """
