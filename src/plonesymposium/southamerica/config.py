@@ -31,4 +31,3 @@ gs.profile(name=u'uninstall',
            directory='profiles/uninstall')
 
 i18n.registerTranslations(directory='locales')
-
