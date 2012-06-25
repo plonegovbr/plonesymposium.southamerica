@@ -52,9 +52,10 @@ def fix_default_content(portal):
         news.setTitle(u'Notícias')
         news.setDescription(u'Notícias do Plone Symposium')
         news.reindexObject()
-    if 'members' in portal_ids:
+    if 'Members' in portal_ids:
         # Hide user's tab
-        members = portal['members']
+        members = portal['Members']
+        members.setTitle(u'Participantes')
         members.setExcludeFromNav(True)
         members.reindexObject()
 

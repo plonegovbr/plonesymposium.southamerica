@@ -10,6 +10,7 @@ from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import setRoles
 
+from plonesymposium.southamerica.config import PRODUCTS
 from plonesymposium.southamerica.quickinstaller import get_package_name
 from plonesymposium.southamerica.testing import INTEGRATION_TESTING
 
@@ -54,7 +55,7 @@ class TestConfig(BaseTestCase):
     """ Ensure we have configured this portal """
 
     def test_title(self):
-        self.failUnless(self.portal.title.startswith('Tribunal Regional'),
+        self.failUnless('Plone Symposium' in self.portal.title,
                         'Title not applied')
 
     def test_email_configs(self):
@@ -82,6 +83,25 @@ class TestConfig(BaseTestCase):
         portal_tabs = self.actions['portal_tabs']
         self.failIf(portal_tabs['index_html'].visible,
                         'Home tab still visible')
+
+    def test_default_contents(self):
+        portal_ids = self.portal.objectIds()
+        self.assertFalse('front-page' in portal_ids)
+        self.assertFalse('events' in portal_ids)
+
+    def test_members_folder(self):
+        portal_ids = self.portal.objectIds()
+        self.assertTrue('Members' in portal_ids)
+        members = self.portal['Members']
+        self.assertEquals(members.Title(), 'Participantes')
+        self.assertEquals(members.exclude_from_nav(), True)
+
+    def test_news_folder(self):
+        portal_ids = self.portal.objectIds()
+        self.assertTrue('news' in portal_ids)
+        news = self.portal['news']
+        self.assertEquals(news.Title(), 'Not\xc3\xadcias')
+        self.assertEquals(news.exclude_from_nav(), False)
 
     def test_content_rules_installed(self):
         from zope.component.interfaces import IObjectEvent
