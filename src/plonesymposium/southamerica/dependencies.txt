@@ -36,6 +36,6 @@ hidden = True
 profile = collective.polls:default
 
 [sc.policy.helper]
-version = 1.0a1
+#version = 1.0a1
 hidden = True
 profile = sc.policy.helper:default
